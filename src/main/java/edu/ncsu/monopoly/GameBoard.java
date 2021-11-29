@@ -13,7 +13,7 @@ public class GameBoard {
 	private GameMaster gameMaster;
 	
 	public GameBoard() {
-		Cell go = new GoCell();
+		IOwnable go = new GoCell();
 		addCell(go);
 	}
 
@@ -25,7 +25,7 @@ public class GameBoard {
         }
     }
 	
-	public void addCell(Cell cell) {
+	public void addCell(IOwnable cell) {
 		cells.add(cell);
 	}
 	
@@ -62,7 +62,7 @@ public class GameBoard {
 			new PropertyCell[getPropertyNumberForColor(color)];
 		int counter = 0;
 		for (int i = 0; i < getCellNumber(); i++) {
-			Cell c = getCell(i);
+			IOwnable c = getCell(i);
 			if(c instanceof PropertyCell) {
 				PropertyCell pc = (PropertyCell)c;
 				if(pc.getColorGroup().equals(color)) {
